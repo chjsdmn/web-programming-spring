@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.String.format;
-
 @Service
 public class ValutaService {
     private final List<Valuta> valutaRegister = new ArrayList<>();
@@ -29,8 +27,7 @@ public class ValutaService {
         for(Valuta valuta : valutaRegister){
             //注意string比较要用.equals，这里的.equalsIgnoreCase()可以忽略大小写
             if(valuta.getValutaSort().equalsIgnoreCase(belop.getValutaSort())){
-                double res = valuta.getValutaKurs() * belop.getVerdi();
-                return Double.parseDouble(format("%.f", res));
+                return valuta.getValutaKurs() * belop.getVerdi();
             }
         }
         return 0.0;
