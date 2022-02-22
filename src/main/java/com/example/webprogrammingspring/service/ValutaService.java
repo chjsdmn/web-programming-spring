@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public class ValutaService {
-    private final List<Valuta> valutaRegister = new ArrayList<>();
+    private final List<Valuta> valutaRegister = new ArrayList<>();  //习惯用法private final List来创建ArrayList
 
     public void loadValuta(){
         Valuta sek = new Valuta("SEK", 0.85);
