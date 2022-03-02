@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 public class TemperaturService {
     private final Integer[] tempArray = new Integer[] {-3,-2,2,7,12,16,18,17,12,7,3,-2};
 
-    public int temperatur(String maned){
+    public int temperatur(String maned) throws NumberFormatException{
         //return the result of switch directly
         return switch (maned.toLowerCase()){  //adjust input data by .toLowerCase()
             case "januar" -> tempArray[0];
@@ -22,7 +22,7 @@ public class TemperaturService {
             case "oktober" -> tempArray[9];
             case "november" -> tempArray[10];
             case "desember" -> tempArray[11];
-            default -> 0;
+            default -> throw new NumberFormatException("Wrong month");
         };
     }
 }
