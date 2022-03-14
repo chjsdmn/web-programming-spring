@@ -1,5 +1,6 @@
 package com.example.webprogrammingspring.controller;
 
+import com.example.webprogrammingspring.model.Car;
 import com.example.webprogrammingspring.model.Motorvogn;
 import com.example.webprogrammingspring.repository.MotorvognRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +21,16 @@ public class MotorvognController {
         this.repo = repo;
     }
 
+    @GetMapping("/api/carList")
+    public List<Car> hentCar(){
+        return repo.henteAlleCar();
+    }
     @PostMapping("/api")
     public void lagre(Motorvogn motorvogn){
         repo.lagreMotor(motorvogn);
     }
 
-    @GetMapping("/api")
+    @GetMapping("/api/hentMotor")
     public List<Motorvogn> henteAlleMotor(){
         return repo.henteMotor();
     }
